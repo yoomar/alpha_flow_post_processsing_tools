@@ -14,8 +14,9 @@ import numpy as np
 import csv
 import vtk
 from math import floor, log10
-from vtk.util.numpy_support import vtk_to_numpy
+from vtkmodules.util.numpy_support import vtk_to_numpy
 import xml.etree.ElementTree as ET
+import matplotlib.pyplot as plt
 workDirec = '../workdirec'
 
 
@@ -427,7 +428,7 @@ def read_vtk(_directory, _file, _field_name_list, _parallel_node_state_string='P
         IOError('Could not find ' + _file + ' in ' + _directory)
 
     if not (isinstance(_field_name_list, list)):
-        raise TypeError("feildNames must be a list, eg [fieldName0, feildName1]")
+        raise TypeError("fieldNames must be a list, eg [fieldName0, fieldName1]")
 
     is_pvtu = _file.split(".")[1] == 'pvtu'
     if not (is_pvtu or _file.split(".")[1] == 'vtu'):
